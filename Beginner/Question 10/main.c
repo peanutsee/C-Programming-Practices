@@ -1,8 +1,5 @@
 #include <stdio.h>
-#include <stdbool.h>
-/*
-Solve the fibonacci question using recursion
-*/
+
 int fibonacci(int n){
     if (n==1) {
         return 0;
@@ -11,7 +8,7 @@ int fibonacci(int n){
     } else if (n==3) {
         return 2;
     } else {
-        return fibonacci(n-2) + fibonacci(n - 1);
+        return fibonacci(n-2) + fibonacci(n-1);
     }
 }
 
