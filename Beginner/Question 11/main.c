@@ -39,6 +39,7 @@ int array_function(int n){
     for (int i = 0;i<index;i++){
         printf("%d", array2[i]);
     }
+    return 0;
 }
 
 
