@@ -16,7 +16,7 @@ void grader(int score){
     }
 }
 
-int main(){
+int main(void){
     while (1){
         int student_id;
         printf("Enter Student ID: ");
