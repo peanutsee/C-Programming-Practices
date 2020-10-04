@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-int main(){
+int main(void){
     int height;
     printf("Enter height (1 to 10): ");
     scanf("%d", &height);
