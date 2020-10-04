@@ -9,7 +9,7 @@ int factorial(int n){
     return result;
 }
 
-int main(){
+int main(void){
     double user_input;
     printf("Enter X:");
     scanf("%lf", &user_input);
