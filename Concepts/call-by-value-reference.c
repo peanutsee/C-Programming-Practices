@@ -29,3 +29,8 @@ void main()
 
 // param a, c & h are passed into the function via call by value
 // param b, d & k are passed into the function via call by reference (pointers and address) - addresses are passed into the function instead of values
+
+
+/*
+Generally, call-by-reference is used with you need to pass more than one value back from a function and it is more efficient as compared to call by value
+*/
