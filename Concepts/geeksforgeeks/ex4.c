@@ -1,5 +1,4 @@
 #include <stdio.h>
-/* CALL BY REFERENCE */
 void exercise_3(int *num1, int *num2)
 {
     printf("%d", *num1 + *num2);
