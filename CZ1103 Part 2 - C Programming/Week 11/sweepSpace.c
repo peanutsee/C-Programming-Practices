@@ -19,23 +19,14 @@ int main()
 char *sweepSpace1(char *str)
 {
     /* Write your program code here */
-    for (int i=0; i<strlen(str); i++)
+    int k = 0;
+    for (int i=0; str[i]; i++)
     {
+        str[i] = str[i+k];
         if (str[i] == ' ')
         {
-            int start = 0;
-            for (int j=i; j<strlen(str)-1; j++)
-            {
-                if (str[j+1] == ' ')
-                {
-                    start++;
-                    break;
-                }
-            }
-            for (int j=i; j<strlen(str); j++)
-                {
-                    str[j] = str[j+1+start];
-                }
+            k++;
+            i--;
         }
     }
     return str;
@@ -44,5 +35,15 @@ char *sweepSpace1(char *str)
 char *sweepSpace2(char *str)
 {
     /* Write your program code here */
-    //TODO: IMPLEMENT sweepSpace2 USING POINTERS
+    int k = 0;
+    for (int i=0; str[i]; i++)
+    {
+        *(str+i) = *(str+i+k);
+        if (str[i] == ' ')
+        {
+            k++;
+            i--;
+        }
+    }
+    return str;
 }
