@@ -28,6 +28,6 @@ char *strncpy(char *s1, char *s2, int n)
         }
     }
     s1[len] = '\0';
-    puts(s1);
+    
     return 0;
 }
