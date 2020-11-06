@@ -1,3 +1,4 @@
+  
 #include <stdio.h>
 #define INIT_VALUE 1000
 typedef struct {
@@ -51,14 +52,13 @@ int main()
 
 void printList(leaveRecord list[], int n)
 {
-   int p;
-    printf("%d\n", n);
-   printf("The staff list:\n");
-   for (p = 0; p < n; p++)
-      printf ("id = %d, totalleave = %d, leave taken = %d\n",
-         list[p].id, list[p].totalLeave, list[p].leaveTaken);
-}
+    int p;
 
+    printf("The staff list:\n");
+    for (p = 0; p < n; p++)
+        printf ("id = %d, totalleave = %d, leave taken = %d\n",
+            list[p].id, list[p].totalLeave, list[p].leaveTaken);
+}
 void getInput(leaveRecord list[], int *n)
 {
 	/* Write your program code here */
