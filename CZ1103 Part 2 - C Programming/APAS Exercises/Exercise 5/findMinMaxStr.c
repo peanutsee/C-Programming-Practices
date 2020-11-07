@@ -25,7 +25,6 @@ void findMinMaxStr(char word[][40], char *first, char *last,
     int i=0;
     strcpy(first, word[i]);
     strcpy(last, word[i]);
-    last = word[i];
 
     for (i; i<size; i++)
     {
