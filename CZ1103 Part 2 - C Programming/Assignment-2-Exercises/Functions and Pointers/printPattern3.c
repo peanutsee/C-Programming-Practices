@@ -19,7 +19,7 @@ void printPattern2(int height)
     {
         for (int j=0; j<i; j++)
         {
-            printf("%d ", (i+j) % 10);
+            printf("%d", (i+j) % 10);
         }
         puts("");
     }
