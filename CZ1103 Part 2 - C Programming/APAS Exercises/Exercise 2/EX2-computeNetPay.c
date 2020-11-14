@@ -1,44 +1,47 @@
 #include <stdio.h>
-int main()
-{
-    int hours;
-    float tax, grossPay, netPay;
+int main() 
+{        
+   int hours, overTime=0;
+   float tax, grossPay, netPay;
+      
+   printf("Enter hours of work: \n");
+   scanf("%d", &hours);
+   /*
+   (1) the basic pay rate is $6.00 per hour; 
+   (2) the over-time pay rate (in excess of 40 hours) is one and a half time of the basic pay rate; 
+   (3) the tax rate is 10\% of the first $1000 of the gross pay, 20\% of the next $500 and 30% of the rest.
+   */
 
-    printf("Enter hours of work: \n");
-    scanf("%d", &hours);
-
-    /* Write your program code here */
-    if (hours<=40)
-    {
-        grossPay = (double)hours * 6.00;
-        tax = grossPay * 0.1;
+   /* Write your program code here */
+   if (hours > 40) 
+   {
+       overTime = hours-40;
+       hours = 40;
+   }
+   
+   grossPay = hours * 6 + overTime * 9;
+   
+   if (grossPay <= 1000)
+   {
+        tax = 0.1 * grossPay;
         netPay = grossPay - tax;
-    }
-    else
-    {
-        int overtimeHours = hours - 40;
-        double second, third;
+   }
+   else 
+   {
+       if (grossPay <= 1500)
+       {
+           tax = 100 + (grossPay - 1000) * 0.2;
+           netPay = grossPay - tax;
+       }
+       else 
+       {
+           tax = 200 + (grossPay - 1500) * 0.3;
+           netPay = grossPay - tax;
+       }
+   }
 
-        grossPay = (double)40 * 6.00 + (double)overtimeHours * 9.00;
-        if (grossPay<=1000)
-        {
-            tax = grossPay * 0.1;
-        }
-        else if (grossPay<=1500)
-        {
-            second = grossPay - 1000;
-            tax = 100 + second * 0.2;
-        }
-        else
-        {
-            third = grossPay - 1500;
-            tax = 100 + 100 + third;
-        }
-        netPay = grossPay - tax;
-    }
-
-    printf("Gross pay = %.2f\n", grossPay);
-    printf("Tax = %.2f\n", tax);
-    printf("Net pay = %.2f\n", netPay);
-    return 0;
+   printf("Gross pay = %.2f\n", grossPay);
+   printf("Tax = %.2f\n", tax);
+   printf("Net pay = %.2f\n", netPay);
+   return 0;  
 }
