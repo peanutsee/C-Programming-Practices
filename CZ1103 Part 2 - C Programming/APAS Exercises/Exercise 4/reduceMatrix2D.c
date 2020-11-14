@@ -32,16 +32,16 @@ void display(int ar[][SIZE], int rowSize, int colSize)
 void reduceMatrix2D(int ar[][SIZE], int rowSize, int colSize)
 {       
    /* Write your program code here */
-   int e_tracker = 0;
-    while (e_tracker < rowSize)
-    {
-        int sum = ar[e_tracker][e_tracker];
-        for (int i=e_tracker+1; i<rowSize; i++)
-        {
-            sum += ar[i][e_tracker];
-            ar[i][e_tracker] = 0;
-        }
-        ar[e_tracker][e_tracker] = sum;
-        e_tracker++;
-    }
+   for (int i=0; i<colSize; i++)
+   {
+       int total = 0;
+       for (int j=i; j<rowSize; j++)
+       {
+           //printf("[%d %d] = %d\n", j, i, ar[j][i]);
+           total += ar[j][i];
+           ar[j][i] = 0;
+       }
+       //printf("Total: %d\n", total);
+       ar[i][i] = total;
+   }
 }
