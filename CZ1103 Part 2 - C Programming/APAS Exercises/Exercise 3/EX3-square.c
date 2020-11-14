@@ -12,26 +12,22 @@ int main()
    printf("square2(): %d\n", result);                
    return 0;
 }
-
 int square1(int num)
 { 
    /* Write your program code here */
-   int result;
+   int total = 0;
    for (int i=0; i<num; i++)
    {
-       int odd = (2*i) + 1;
-       result += odd;
+       total += 2*i + 1;
    }
-   return result;
+   return total;
 }  
-
 void square2(int num, int *result)
 { 
    /* Write your program code here */
    *result = 0;
    for (int i=0; i<num; i++)
    {
-       int odd = (2*i) + 1;
-       (*result) += odd;
+       (*result) += 2*i + 1;
    }
 }
