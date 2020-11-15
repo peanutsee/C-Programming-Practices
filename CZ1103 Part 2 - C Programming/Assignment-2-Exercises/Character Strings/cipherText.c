@@ -47,57 +47,38 @@ int main()
 
 void cipher(char *s)
 {
-    char c;
-
     /* Write your program code here */
-    for (int i=0; s[i] != '\0'; i++)
+    for (int i=0; s[i]!='\0'; i++)
     {
-        c = s[i];
-        if (!isdigit(c))
+        if (s[i]!=' ' || !(isdigit(s[i])))
         {
-            if ('a' <= c && c <= 'z')
+            if (s[i]>='a' && s[i]<='z')
             {
-                c++;
-                if (c>122) c-=26;
-                if (c<97) c+=26;
-                s[i] = c;
+                s[i] = (s[i] + 1) > 'z'? s[i]+1-26:s[i]+1;
             }
-            else
+            if (s[i]>='A' && s[i]<='Z')
             {
-                c++;
-                if (c>90) c-=26;
-                if (c<65) c+=26;
-                s[i] = c;
+                s[i] = (s[i] + 1) > 'Z'? s[i]+1-26:s[i]+1;
             }
         }
     }
-
 }
 
 void decipher(char *s)
 {
-    char c;
     /* Write your program code here */
-    for (int i=0; s[i] != '\0'; i++)
+    for (int i=0; s[i]!='\0'; i++)
     {
-        c = s[i];
-        if (!isdigit(c))
+        if (s[i]!=' ' || !(isdigit(s[i])))
         {
-            if ('a' <= c && c <= 'z')
+            if (s[i]>='a' && s[i]<='z')
             {
-                c--;
-                if (c>122) c-=26;
-                if (c<97) c+=26;
-                s[i] = c;
+                s[i] = (s[i] - 1) < 'a'? s[i]-1+26:s[i]-1;
             }
-            else
+            if (s[i]>='A' && s[i]<='Z')
             {
-                c--;
-                if (c>90) c-=26;
-                if (c<65) c+=26;
-                s[i] = c;
+                s[i] = (s[i] - 1) < 'A'? s[i]-1+26:s[i]-1;
             }
         }
-
     }
 }
