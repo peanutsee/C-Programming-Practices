@@ -22,24 +22,26 @@ int main()
 int countSubstring(char str[], char substr[])
 {
     /* Write your program code here */
-    int counter = 0;
-    int j = 0;
-
-    for (int i=0; str[i] != '\0'; i++)
+    int counter=0, j=0;
+    
+    for (int i=0; str[i]!='\0'; i++)
     {
         if (str[i] == substr[j])
         {
-            for (j; substr[j] != '\0'; j++)
+            int temp=i;
+            for (j; substr[j]!='\0'; j++ )
             {
-                if (substr[j] != str[j+i])
-                {
-                    break;
-                }
+                if (substr[j]!=str[temp]) break;
+                temp++;
             }
-            if (substr[j] == '\0')
+            if (substr[j] == '\0') 
             {
-                counter ++;
-                j = 0;
+                counter++;
+                j=0;
+            }
+            else 
+            {
+                j=0;
             }
         }
     }
