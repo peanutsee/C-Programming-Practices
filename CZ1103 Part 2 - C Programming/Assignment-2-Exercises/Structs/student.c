@@ -62,15 +62,14 @@ int main()
 
 void inputStud(Student *s, int size)
 {
-    ///The function inputStud() reads in students’ information according to an input student size.
     /* Write your code here */
     char *p;
     for (int i=0; i<size; i++)
     {
         printf("Student ID:\n");
         scanf("%d", &s[i].id);
-
-        printf("Student name:\n");
+        
+        printf("Student Name:\n");
         scanf("\n");
         fgets(s[i].name, 50, stdin);
         if (p=strchr(s[i].name, '\n')) *p='\0';
@@ -79,10 +78,11 @@ void inputStud(Student *s, int size)
 
 void printStud(Student *s, int size)
 {
-    /// The function printStud() prints the student information on the display.
-    /// It will print the message “Empty array“ if the student list is empty.
     /* Write your code here */
-    if (size == 0) printf("Empty array\n");
+    if (size==0)
+    {
+        return 1;
+    }
     else
     {
         for (int i=0; i<size; i++)
@@ -95,23 +95,24 @@ void printStud(Student *s, int size)
 int removeStud(Student *s, int *size, char *target)
 {
     /* Write your code here */
-    if (*size == 0) return 1;
+    if (*size == 0)
+    {
+        printf("Array is empty\n");
+    }
     else
     {
         for (int i=0; i<*size; i++)
         {
             if (strcmp(s[i].name, target) == 0)
             {
-                // remove
-                for (int j=i; j<size; j++)
+                for (int j=i; j<*size; j++)
                 {
-                    s[i].id = s[i+1].id;
-                    strcpy(s[i].name, s[i+1].name);
+                    s[j] = s[j+1];
                 }
                 (*size)--;
                 return 0;
             }
         }
-        return 2;
     }
+    return 2;
 }
