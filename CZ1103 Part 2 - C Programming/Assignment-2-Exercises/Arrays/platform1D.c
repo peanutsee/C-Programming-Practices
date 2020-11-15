@@ -17,19 +17,23 @@ int main()
 int platform1D(int ar[], int size)
 {
     /* Write your code here */
-    int temp_max = 0, max = 1;
+    int temp_count=0, max_count=0, current=ar[0];
 
     for (int i=0; i<size; i++)
     {
-        temp_max++;
-        if (ar[i] != ar[i+1])
+        if (ar[i] == current)
         {
-            if (temp_max > max)
+            temp_count++;
+            if (i==size-1)
             {
-                max = temp_max;
+                max_count = temp_count;
             }
-            temp_max = 0;
+        }
+        else 
+        {
+            if (temp_count > max_count) max_count = temp_count;
+            current = ar[i];
         }
     }
-    return max;
+    return max_count;
 }
