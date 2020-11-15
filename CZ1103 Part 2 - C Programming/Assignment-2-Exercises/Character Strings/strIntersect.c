@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <string.h>
 
 void strIntersect(char *str1, char *str2, char *str3);
 
@@ -21,21 +20,17 @@ int main()
 void strIntersect(char *str1, char *str2, char *str3)
 {
     /* Write your code here */
-    int len1, len2, tracker;
-    len1 = strlen(str1);
-    len2 = strlen(str2);
-    tracker = 0;
-
-    for (int i=0; i<len1; i++)
+    int k=0;
+    for (int i=0; str1[i]!='\0'; i++)
     {
-        for (int j=0; j<len2; j++)
+        for (int j=0; str2[j]!='\0'; j++)
         {
             if (str1[i] == str2[j])
             {
-                str3[tracker] = str1[i];
-                tracker++;
+                str3[k] = str1[i];
+                k++;
             }
         }
     }
-    str3[tracker] = '\0';
+    str3[k] = '\0';
 }
