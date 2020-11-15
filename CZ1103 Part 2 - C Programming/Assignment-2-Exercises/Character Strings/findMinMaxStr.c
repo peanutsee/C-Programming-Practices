@@ -1,9 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 #define SIZE 10
-
-void findMinMaxStr(char word[][40], char *first, char *last, int size);
-
+void findMinMaxStr(char word[][40], char *first, char *last, int
+                   size);
 int main()
 {
     char word[SIZE][40];
@@ -19,24 +18,15 @@ int main()
     return 0;
 }
 
-void findMinMaxStr(char word[][40], char *first, char *last, int size)
+void findMinMaxStr(char word[][40], char *first, char *last, int
+                   size)
 {
     /* Write your program code here */
     strcpy(first, word[0]);
     strcpy(last, word[0]);
-
-    for (int i=1; i<size; i++)
+    for (int i=0; i<size; i++)
     {
-        // Find min
-        if (strcmp(word[i], first) < 0)
-        {
-            strcpy(first, word[i]);
-        }
-
-        // Find max
-        if (strcmp(word[i], last) > 0)
-        {
-            strcpy(last, word[i]);
-        }
+        if (strcmp(word[i], first) < 0)  strcpy(first, word[i]);
+        if (strcmp(word[i], last) > 0) strcpy(last, word[i]);
     }
 }
