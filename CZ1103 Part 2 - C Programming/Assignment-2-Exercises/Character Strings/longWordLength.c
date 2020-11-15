@@ -16,24 +16,22 @@ int main()
 int longWordLength(char *s)
 {
     /* Write your code here */
-    int counter, max_counter;
-    counter = 0;
-    max_counter = 0;
-    for (int i=0; s[i] != '\0'; i++)
+    int max_len, temp_len, i;
+    
+    temp_len=0;
+    i=0;
+    
+    for (i; s[i]!='\0'; i++)
     {
-        if ((s[i] >= 'a' && s[i] <= 'z') || (s[i] >= 'A' && s[i] <= 'Z'))
+        if ((s[i]>='a' && s[i]<='z') || (s[i]>='A' && s[i]<='Z'))
         {
-            counter++;
-
+            temp_len++;
         }
-        else
+        else 
         {
-            if (max_counter <= counter)
-            {
-                max_counter  = counter;
-            }
-            counter = 0;
+            if (max_len < temp_len) max_len = temp_len;
+            temp_len=0;
         }
     }
-    return max_counter;
+    return max_len;
 }
