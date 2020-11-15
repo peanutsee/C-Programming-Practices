@@ -23,28 +23,25 @@ int main()
         printf("findSubstring(): An error\n");
     return 0;
 }
+
 int findSubstring(char *str, char *substr)
 {
     /* Write your code here */
-    int sub=0;
-
-    for (int i=0; str[i] != '\0'; i++)
+    int j=0;
+    for (int i=0; str[i]!='\0'; i++)
     {
-        if (substr[sub] == str[i])
+        if (str[i] == substr[j])
         {
-            for (sub; substr[sub] != '\0'; sub++)
+            int temp=i;
+            for (j; substr[j]!='\0'; j++ )
             {
-                if (substr[sub] == str[i])
-                    i++;
-                else
-                {
-                    sub = 0;
-                    break;
-                }
+                if (substr[j]!=str[temp]) break;
+                temp++;
             }
-            if (i != 0 && substr[sub] == '\0')
+            if (substr[j] == '\0') return 1;
+            else 
             {
-                return 1;
+                j=0;
             }
         }
     }
