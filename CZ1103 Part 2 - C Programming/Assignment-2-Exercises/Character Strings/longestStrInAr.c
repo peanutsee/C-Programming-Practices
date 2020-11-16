@@ -26,18 +26,15 @@ int main()
 char *longestStrInAr(char str[N][40], int size, int *length)
 {
     /* Write your code here */
-    int longest_index = 0;
-    (*length) = 0;
-    
-    for (int i=0; i<size; i++)
+    int longestIndex=0, i=0;
+    *length = 0;
+    for (i; i<size; i++)
     {
-        int temp_len = strlen(str[i]);
-        if (temp_len > (*length))
+        if (strlen(str[i]) > *length) 
         {
-            (*length) = temp_len;
-            longest_index = i;
+            *length = strlen(str[i]);
+            longestIndex = i;
         }
     }
-    
-    return str[longest_index];
+    return str[longestIndex];
 }
