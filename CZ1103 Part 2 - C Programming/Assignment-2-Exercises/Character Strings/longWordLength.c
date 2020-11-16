@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-
 int longWordLength(char *s);
-
 int main()
 {
     char str[80], *p;
@@ -12,26 +10,18 @@ int main()
     printf("longWordLength(): %d\n", longWordLength(str));
     return 0;
 }
-
 int longWordLength(char *s)
 {
     /* Write your code here */
-    int max_len, temp_len, i;
-    
-    temp_len=0;
-    i=0;
-    
+    int maxLength=0, tempLength=0, i=0;
     for (i; s[i]!='\0'; i++)
     {
-        if ((s[i]>='a' && s[i]<='z') || (s[i]>='A' && s[i]<='Z'))
+        if ((s[i]>='a' && s[i]<='z') || ((s[i]>='A') && s[i]<='Z')) tempLength++;
+        else
         {
-            temp_len++;
-        }
-        else 
-        {
-            if (max_len < temp_len) max_len = temp_len;
-            temp_len=0;
+            maxLength = maxLength < tempLength? tempLength:maxLength;
+            tempLength=0;
         }
     }
-    return max_len;
+    return maxLength;
 }
