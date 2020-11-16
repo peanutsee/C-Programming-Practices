@@ -17,17 +17,15 @@ int main()
 char *stringncpy(char *s1, char *s2, int n)
 {
    /* Write your program code here */
-   int i=0;
+   int i=0, len=0;
+   for (len; s2[len]!='\0'; len++);
+   printf("len: %d\n", len);
+   
+   
    for (i; i<n; i++)
    {
-       //printf("i: %d\n", i);
-       if (isalpha(s2[i]))
-       {
-           //printf("%c\n", s2[i]);
-           s1[i] = s2[i];
-       }
-           
-       else s1[i] = '*'; // Appends custom character to EOF
+       if (i<len) s1[i] = s2[i]; // Condition is only true when i is less than len of s2 (source)
+       else s1[i] = '#'; // Append custom EOF characters
    }
    s1[n] = '\0'; // NULL character at EOF
    return s1;
